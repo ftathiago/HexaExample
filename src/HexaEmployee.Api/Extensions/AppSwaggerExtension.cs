@@ -16,6 +16,6 @@ namespace HexaEmployee.Api.Extensions
                 .UseSwaggerUI(o => provider.ApiVersionDescriptions
                     .ToList()
                     .ForEach(d =>
-                        o.SwaggerEndpoint($"/swagger/{d.GroupName}/swagger.json", d.GroupName.ToUpper())));
+                        o.SwaggerEndpoint($"/swagger/{d.GroupName}/swagger.json", d.GroupName.ToLower())));
     }
 }

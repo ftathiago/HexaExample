@@ -1,4 +1,3 @@
-using HexaEmployee.EfInfraData.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -15,8 +14,6 @@ namespace HexaEmployee.EfInfraData.Contexts
         {
             // Just for mocking test
         }
-
-        public virtual DbSet<SampleTable> SampleTables { get; init; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

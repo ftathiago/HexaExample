@@ -27,7 +27,6 @@ namespace HexaEmployee.Api.Extensions
 
                 options.ExampleFilters();
                 options.OperationFilter<AddResponseHeadersFilter>();
-                options.OperationFilter<QueryFieldsOpenApiFilter>();
                 options.CustomSchemaIds(type => type.FullName);
                 options.LoadDocumentationFiles();
             })
