@@ -1,0 +1,46 @@
+﻿version: "3.4"
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+
+volumes:
+  hexaemployee.postgres-database:
+
+services:
+  postgres:
+    image: postgres:11.12
+    volumes:
+      - ./postgres/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - hexaemployee.postgres-database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Postgres2021!"
+    ports:
+      - "15432:5432"
+    networks:
+      - backend
+      - frontend
+  domain-name.hexaemployee:
+    build:
+      context: ../../
+      dockerfile: ./eng/docker/dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=postgres;Port=5432;Database=HexaEmployeeDB;User Id=postgres;Password=Postgres2021!
+    ports:
+      - 8080:80
+    networks:
+      - frontend
+      - backend
+    #    Choose only one
+    depends_on:
+      - postgres
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

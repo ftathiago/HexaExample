@@ -1,0 +1,33 @@
+steps:
+  - checkout: git://project/hexaemployee-infrastructure@refs/heads/main
+
+  - task: Bash@3
+    displayName: "Prepare YAMLs"
+    inputs:
+      targetType: "inline"
+      script: |
+        for filename in *.yml; do
+          echo "Replacing $filename"
+          envsubst < $filename > tmp.yml
+          mv tmp.yml $filename
+          cat $filename
+        done;
+      workingDirectory: "$(HexaEmployee.DeployFiles.Path)"
+
+  - task: Kubernetes@1
+    displayName: Apply kubernetes deploy
+    inputs:
+      azureContainerRegistry: $(HexaEmployee.kube_azureContainerRegistry)
+      kubernetesServiceEndpoint: $(HexaEmployee.kube_ServiceEndpoint)
+      namespace: $(HexaEmployee.kube_namespace)
+      command: apply
+      arguments: -f $(HexaEmployee.kube_deploy_file)
+
+  - task: Kubernetes@1
+    displayName: Rollout new deploy
+    inputs:
+      azureContainerRegistry: $(HexaEmployee.kube_azureContainerRegistry)
+      kubernetesServiceEndpoint: $(HexaEmployee.kube_ServiceEndpoint)
+      namespace: $(HexaEmployee.kube_namespace)
+      command: rollout
+      arguments: restart deploy $(HexaEmployee.kube_deploy)

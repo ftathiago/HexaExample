@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
+    <InternalsVisibleTo Include="HexaEmployee.Api.Tests" />
+    <InternalsVisibleTo Include="HexaEmployee.Domain.Tests" />
+    <InternalsVisibleTo Include="HexaEmployee.InfraData.Tests" />
+    <InternalsVisibleTo Include="HexaEmployee.Shared.Tests" />
+    <InternalsVisibleTo Include="HexaEmployee.WarmUp.Tests"/>
+  </ItemGroup>
+</Project>
