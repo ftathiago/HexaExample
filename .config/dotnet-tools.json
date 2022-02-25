@@ -4,33 +4,23 @@
   "tools": {
     "dotnet-format": {
       "version": "5.1.250801",
-      "commands": [
-        "dotnet-format"
-      ]
+      "commands": ["dotnet-format"]
     },
     "fluentmigrator.dotnet.cli": {
       "version": "3.3.2",
-      "commands": [
-        "dotnet-fm"
-      ]
+      "commands": ["dotnet-fm"]
     },
     "adr": {
       "version": "0.1.0-preview.36",
-      "commands": [
-        "adr"
-      ]
+      "commands": ["adr"]
     },
     "dotnet-ef": {
-      "version": "5.0.12",
-      "commands": [
-        "dotnet-ef"
-      ]
+      "version": "5.0.14",
+      "commands": ["dotnet-ef"]
     },
     "dotnet-reportgenerator-globaltool": {
       "version": "5.0.3",
-      "commands": [
-        "reportgenerator"
-      ]
+      "commands": ["reportgenerator"]
     }
   }
 }

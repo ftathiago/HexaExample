@@ -12,8 +12,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="FluentAssertions" Version="*" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.14" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MockQueryable.EntityFrameworkCore" Version="5.0.1" />
     <PackageReference Include="MockQueryable.Moq" Version="5.0.1" />
