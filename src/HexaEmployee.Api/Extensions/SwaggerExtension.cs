@@ -1,5 +1,4 @@
 using HexaEmployee.Api.Configurations;
-using HexaEmployee.Api.Filters;
 using HexaEmployee.Api.Models.OpenApiSecurity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;

@@ -1,4 +1,6 @@
+using HexaEmployee.Domain.Repositories;
 using HexaEmployee.EfInfraData.Contexts;
+using HexaEmployee.EfInfraData.Repositories;
 using HexaEmployee.Shared.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +14,7 @@ namespace HexaEmployee.EfInfraData.Extensions
     {
         public static IServiceCollection AddEfInfraData(this IServiceCollection services) =>
             services
+                .AddScoped<IEmployees, EmployeeRepository>()
                 .AddDbContext<HexaEmployeeDbContext>((provider, options) =>
                 {
                     var configuration = provider.GetRequiredService<IConfiguration>();

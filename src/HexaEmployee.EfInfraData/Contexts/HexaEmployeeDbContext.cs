@@ -1,3 +1,4 @@
+using HexaEmployee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -10,14 +11,10 @@ namespace HexaEmployee.EfInfraData.Contexts
         {
         }
 
-        protected HexaEmployeeDbContext()
-        {
-            // Just for mocking test
-        }
+        public DbSet<EmployeeEntity> Employees { get; init; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+            modelBuilder
+                .ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
