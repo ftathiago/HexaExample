@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace HexaEmployee.Domain.Repositories
 {
-    public interface IEmployees
+    public interface IEmployee
     {
         Task<EmployeeEntity> GetById(Guid id);
     }

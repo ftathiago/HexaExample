@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HexaEmployee.EfInfraData.Repositories
 {
-    public class EmployeeRepository : IEmployees
+    public class EmployeeRepository : IEmployee
     {
         private readonly HexaEmployeeDbContext _context;
 

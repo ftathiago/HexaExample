@@ -13,9 +13,9 @@ namespace HexaEmployee.Api.Controllers
     [Produces(MediaTypeNames.Application.Json)]
     public class EmployeesController : Controller
     {
-        private readonly IEmployees _employees;
+        private readonly IEmployee _employees;
 
-        public EmployeesController(IEmployees employees) =>
+        public EmployeesController(IEmployee employees) =>
             _employees = employees;
 
         /// <summary>Returns employees data.</summary>
