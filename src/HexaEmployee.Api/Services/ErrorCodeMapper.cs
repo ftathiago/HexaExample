@@ -8,6 +8,7 @@ namespace HexaEmployee.Api.Services
         public static HttpStatusCode Map(string errorCode) => errorCode switch
         {
             ErrorCode.InvalidData => HttpStatusCode.BadRequest,
+            ErrorCode.ExpectedDataNotFound => HttpStatusCode.NotFound,
             _ => HttpStatusCode.InternalServerError,
         };
     }

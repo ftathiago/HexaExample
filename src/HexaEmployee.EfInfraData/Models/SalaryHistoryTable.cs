@@ -2,9 +2,9 @@ using System;
 
 namespace HexaEmployee.EfInfraData.Models
 {
-    public class SalaryHistoryTable
+    public record SalaryHistoryTable
     {
-        public Guid Id { get; init; }
+        public Guid Id { get; init; } = Guid.NewGuid();
 
         public Guid EmployeeId { get; init; }
 

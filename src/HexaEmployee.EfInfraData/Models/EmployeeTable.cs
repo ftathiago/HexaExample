@@ -2,7 +2,7 @@ using System;
 
 namespace HexaEmployee.EfInfraData.Models
 {
-    public class EmployeeTable
+    public record EmployeeTable
     {
         public Guid Id { get; set; }
 

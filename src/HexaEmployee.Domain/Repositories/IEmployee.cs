@@ -7,5 +7,7 @@ namespace HexaEmployee.Domain.Repositories
     public interface IEmployee
     {
         Task<EmployeeEntity> GetById(Guid id);
+
+        Task UpdateAsync(EmployeeEntity entity);
     }
 }

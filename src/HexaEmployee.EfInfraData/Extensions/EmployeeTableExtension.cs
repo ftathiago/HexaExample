@@ -11,13 +11,30 @@ namespace HexaEmployee.EfInfraData.Extensions
             this EmployeeTable? employee,
             SalaryHistoryTable? currentSalary) => employee is null
             ? default
-            : new()
+            : new(
+                currentSalary?.Salary ?? 0,
+                currentSalary?.SalaryRaisedAt ?? DateTimeOffset.Now)
             {
                 Id = employee.Id,
                 Name = employee.Name,
                 Email = employee.Email,
-                Salary = currentSalary?.Salary ?? 0,
-                LastSalaryRaise = currentSalary?.SalaryRaisedAt ?? DateTimeOffset.Now,
             };
+
+        public static (EmployeeTable Employee, SalaryHistoryTable SalaryHistory) ToTable(this EmployeeEntity employeeEntity)
+        {
+            return (
+                new EmployeeTable
+                {
+                    Id = employeeEntity.Id,
+                    Name = employeeEntity.Name,
+                    Email = employeeEntity.Email,
+                },
+                new SalaryHistoryTable
+                {
+                    EmployeeId = employeeEntity.Id,
+                    Salary = employeeEntity.Salary,
+                    SalaryRaisedAt = employeeEntity.LastSalaryRaise,
+                });
+        }
     }
 }
