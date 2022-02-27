@@ -1,12 +1,12 @@
-using HexaEmployee.Domain.Entities;
+using HexaEmployee.EfInfraData.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HexaEmployee.EfInfraData.OrmMappings
 {
-    public class EmployeeMapping : IEntityTypeConfiguration<EmployeeEntity>
+    public class EmployeeMapping : IEntityTypeConfiguration<EmployeeTable>
     {
-        public void Configure(EntityTypeBuilder<EmployeeEntity> builder)
+        public void Configure(EntityTypeBuilder<EmployeeTable> builder)
         {
             builder
                 .ToTable("EMPLOYEE")
@@ -28,17 +28,6 @@ namespace HexaEmployee.EfInfraData.OrmMappings
                 .HasColumnName("EMAIL")
                 .IsRequired()
                 .HasMaxLength(250);
-
-            builder
-                .Property(x => x.LastSalaryRaise)
-                .HasColumnName("SALARY_RAISE_DATE")
-                .IsRequired();
-
-            builder
-                .Property(x => x.Salary)
-                .HasColumnName("SALARY")
-                .HasColumnType("MONEY")
-                .IsRequired();
         }
     }
 }

@@ -1,4 +1,4 @@
-using HexaEmployee.Domain.Entities;
+using HexaEmployee.EfInfraData.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -11,7 +11,9 @@ namespace HexaEmployee.EfInfraData.Contexts
         {
         }
 
-        public DbSet<EmployeeEntity> Employees { get; init; }
+        public DbSet<EmployeeTable> Employees { get; init; }
+
+        public DbSet<SalaryHistoryTable> SalaryHistory { get; init; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) =>
             modelBuilder
