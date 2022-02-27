@@ -3,14 +3,17 @@ using System;
 using HexaEmployee.EfInfraData.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HexaEmployee.EfInfraData.Migrations
 {
     [DbContext(typeof(HexaEmployeeDbContext))]
-    partial class HexaEmployeeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220227153638_CreateSalaryHistoryTable")]
+    partial class CreateSalaryHistoryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
